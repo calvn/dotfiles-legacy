@@ -1,11 +1,12 @@
 "*":
+  core:
+    telemetryConsent: "limited"
+  editor:
+    fontSize: 11
+    invisibles: {}
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
   "exception-reporting":
-    userId: "8bcd5df4-3d4e-c55d-4cd3-eaf64ed6a498"
+    userId: "07153a4d-b08f-ebfd-6735-4e5c688ceff6"
   welcome:
     showOnStartup: false
-  core: {}
-  editor:
-    invisibles: {}
-    fontSize: 10
-    showIndentGuide: true
-    showInvisibles: true

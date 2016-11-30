@@ -10,6 +10,7 @@ brew 'neovim'
 brew 'nvm'
 brew 'unrar'
 brew 'wget'
+brew 'yarn'
 brew 'zsh'
 
 
