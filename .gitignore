@@ -1,6 +1,6 @@
-git/gitconfig.symlink
-
 atom.symlink/*
 !atom.symlink/atom.coffee
 !atom.symlink/config.cson
 !atom.symlink/init.coffee
+
+git/gitconfig.local.symlink
