@@ -137,8 +137,17 @@ install_dotfiles () {
   done
 }
 
+setup_godir () {
+  if ! [ -d $PROJECTS/go ]
+  then
+    mkdir -p $PROJECTS/go
+    success "created $PROJECTS/go directory"
+  fi
+}
+
 setup_gitconfig
 install_dotfiles
+setup_godir
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
@@ -154,5 +163,3 @@ fi
 
 echo ''
 echo '  All installed!'
-
-# ln -sfn $HOME/.dotfiles/zsh/zshrc.symlink .zshrc
