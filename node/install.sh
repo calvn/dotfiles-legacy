@@ -1,4 +1,4 @@
-if test ! $(which nvm)
+if [ ! -d ~/.zsh-nvm ]
 then
   git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 fi

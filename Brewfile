@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 tap 'neovim/neovim'
 
 brew 'ack'
+brew 'awscli'
 brew 'coreutils'
 brew 'go'
 brew 'jq'
@@ -16,6 +17,7 @@ brew 'zsh'
 
 
 cask 'atom'
+cask 'docker'
 cask 'duet'
 cask 'flux'
 cask 'google-chrome'
