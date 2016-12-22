@@ -16,6 +16,7 @@ brew 'zsh'
 
 
 cask 'atom'
+cask 'duet'
 cask 'flux'
 cask 'google-chrome'
 cask 'istat-menus'
