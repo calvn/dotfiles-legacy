@@ -4,3 +4,5 @@ atom.symlink/*
 !atom.symlink/init.coffee
 
 git/gitconfig.local.symlink
+
+vscode/workspaceStorage

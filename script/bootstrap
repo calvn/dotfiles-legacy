@@ -62,7 +62,7 @@ link_file () {
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then
 
-      local currentSrc="$(readlink $dst)"
+      local currentSrc="$(readlink "$dst")"
 
       if [ "$currentSrc" == "$src" ]
       then
@@ -137,6 +137,18 @@ install_dotfiles () {
   done
 }
 
+setup_vscode() {
+  local overwrite_all=false backup_all=false skip_all=false
+
+  src="$DOTFILES_ROOT/vscode"
+  if [ -d $src ] 
+  then
+    info 'installing vscode settings'
+    dst="$HOME/Library/Application Support/Code/User"
+    link_file "$src" "$dst"
+  fi
+}
+
 setup_godir () {
   if ! [ -d $PROJECTS/go ]
   then
@@ -147,6 +159,7 @@ setup_godir () {
 
 setup_gitconfig
 install_dotfiles
+setup_vscode
 setup_godir
 
 # If we're on a Mac, let's install and setup homebrew.
