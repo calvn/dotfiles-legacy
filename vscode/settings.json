@@ -7,5 +7,6 @@
   "workbench.iconTheme": "vscode-icons",
   "window.title": "${activeEditorLong}${separator}${rootName}",
   "editor.minimap.enabled": true,
-  "editor.minimap.renderCharacters": false
+  "editor.minimap.renderCharacters": false,
+  "go.gopath": "/Users/cleung/code/go"
 }
