@@ -143,17 +143,20 @@ setup_vscode() {
   src="$DOTFILES_ROOT/vscode"
   if [ -d $src ] 
   then
-    info 'installing vscode settings'
     dst="$HOME/Library/Application Support/Code/User"
+    mkdir -p "$dst"
     link_file "$src" "$dst"
   fi
 }
 
 setup_godir () {
-  if ! [ -d $PROJECTS/go ]
+  if zsh -c "source ${HOME}/.zshrc"
   then
-    mkdir -p $PROJECTS/go
-    success "created $PROJECTS/go directory"
+    if ! [ -d "${PROJECTS}/go" ]
+    then
+      mkdir -p "${PROJECTS}/go"
+      success "created ${PROJECTS}/go directory"
+    fi
   fi
 }
 
@@ -166,7 +169,7 @@ setup_godir
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
+  if source bin/dot | while read -r data; do info "$data"; done
   then
     success "dependencies installed"
   else
@@ -174,5 +177,4 @@ then
   fi
 fi
 
-echo ''
-echo '  All installed!'
+info 'All installed!'
