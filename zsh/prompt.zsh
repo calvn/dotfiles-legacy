@@ -24,9 +24,16 @@ git_dirty() {
 }
 
 git_prompt_info () {
-  ref=$($git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || ref=$($git symbolic-ref --short HEAD 2>/dev/null) || return
+  ref=$($git symbolic-ref --short HEAD 2>/dev/null) || return
   # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
   echo "${ref}"
+}
+
+git_remote_info () {
+  ref=$($git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || return
+  # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
+
+  echo " [%{$fg_bold[blue]%}${ref}%{$reset_color%}]"
 }
 
 unpushed () {
@@ -75,7 +82,7 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%3~%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\nλ$(rc_prompt) $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\nλ$(rc_prompt) $(directory_name) $(git_dirty)$(git_remote_info)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
