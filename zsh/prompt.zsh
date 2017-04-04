@@ -24,9 +24,9 @@ git_dirty() {
 }
 
 git_prompt_info () {
- ref=$($git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || ref=$($git symbolic-ref --short HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref}"
+  ref=$($git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || ref=$($git symbolic-ref --short HEAD 2>/dev/null) || return
+  # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
+  echo "${ref}"
 }
 
 unpushed () {
