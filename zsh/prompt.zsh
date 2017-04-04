@@ -9,10 +9,6 @@ else
   git="/usr/bin/git"
 fi
 
-git_branch() {
-  echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-}
-
 git_dirty() {
   if $(! $git status -s &> /dev/null)
   then
@@ -28,9 +24,9 @@ git_dirty() {
 }
 
 git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
+ ref=$($git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || ref=$($git symbolic-ref --short HEAD 2>/dev/null) || return
 # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
+ echo "${ref}"
 }
 
 unpushed () {
