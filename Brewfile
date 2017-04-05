@@ -10,6 +10,7 @@ brew 'glide'
 brew 'go'
 brew 'jq'
 brew 'kubernetes-cli'
+brew 'mas'
 brew 'neovim'
 brew 'unrar'
 brew 'watchman'
@@ -29,7 +30,10 @@ cask 'iterm2'
 cask 'postman'
 cask 'slack'
 cask 'spectacle'
-cask 'todoist'
 cask 'virtualbox'
 cask 'visual-studio-code'
 cask 'zoomus'
+
+
+mas 'Spark', id: 1176895641
+mas 'Todoist', id: 585829637
