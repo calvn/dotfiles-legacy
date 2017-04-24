@@ -79,7 +79,7 @@ rc_prompt() {
 }
 
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%3~%\/%{$reset_color%}"
+  echo "%{$fg_bold[cyan]%}%3~%{$reset_color%}"
 }
 
 export PROMPT=$'\nλ$(rc_prompt) $(directory_name) $(git_dirty)$(git_remote_info)$(need_push)\n› '
