@@ -9,5 +9,6 @@
   "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
   "go.gopath": "/Users/cleung/code/go",
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.zoomLevel": 0
 }

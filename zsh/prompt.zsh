@@ -31,21 +31,20 @@ git_prompt_info () {
 
 git_remote_info () {
   ref=$($git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || return
-  # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
-
   echo " [%{$fg_bold[blue]%}${ref}%{$reset_color%}]"
 }
 
-unpushed () {
-  $git cherry -v @{upstream} 2>/dev/null
-}
-
 need_push () {
-  if [[ $(unpushed) == "" ]]
+  if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
   then
-    echo " "
-  else
-    echo " (%{$fg_bold[magenta]%}unpushed%{$reset_color%}) "
+    number=$($git cherry -v @{upstream} 2>/dev/null | wc -l | bc)
+
+    if [[ $number == 0 ]]
+    then
+      echo " "
+    else
+      echo " (%{$fg_bold[magenta]%}$number unpushed%{$reset_color%}) "
+    fi
   fi
 }
 
